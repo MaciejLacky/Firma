@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firma.PortalWWW", "Firma.Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firma.Intranet", "Firma.Intranet\Firma.Intranet.csproj", "{F9860F1C-BA18-4ECB-B519-5C2C89086C0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firma.Data", "Firma.Data\Firma.Data.csproj", "{B913DD55-B6BF-4F7A-B1BE-F84BBEE731CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F9860F1C-BA18-4ECB-B519-5C2C89086C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9860F1C-BA18-4ECB-B519-5C2C89086C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9860F1C-BA18-4ECB-B519-5C2C89086C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B913DD55-B6BF-4F7A-B1BE-F84BBEE731CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B913DD55-B6BF-4F7A-B1BE-F84BBEE731CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B913DD55-B6BF-4F7A-B1BE-F84BBEE731CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B913DD55-B6BF-4F7A-B1BE-F84BBEE731CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
