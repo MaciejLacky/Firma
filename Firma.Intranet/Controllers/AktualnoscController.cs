@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Firma.Intranet.Data;
-using Firma.Intranet.Models.CMS;
+using Firma.Data.Data;
+using Firma.Data.Data.CMS;
 
 namespace Firma.Intranet.Controllers
 {
     public class AktualnoscController : Controller
     {
-        private readonly FirmaIntranetContext _context;
+        private readonly FirmaContext _context;
 
-        public AktualnoscController(FirmaIntranetContext context)
+        public AktualnoscController(FirmaContext context)
         {
             _context = context;
         }

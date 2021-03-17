@@ -1,11 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿
 
-namespace Firma.Intranet.Migrations
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace Firma.Data.Migrations
 {
     public partial class M1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Aktualnosc",
+                columns: table => new
+                {
+                    IdAktualnosci = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LinkTytul = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Tytul = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Tekst = table.Column<string>(type: "nvarchar(MAX)", nullable: true),
+                    Pozycja = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Aktualnosc", x => x.IdAktualnosci);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Rodzaj",
                 columns: table => new
@@ -18,6 +36,22 @@ namespace Firma.Intranet.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rodzaj", x => x.IdRodzaju);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Strona",
+                columns: table => new
+                {
+                    IdStrony = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LinkTytul = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Tytul = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Tresc = table.Column<string>(type: "nvarchar(MAX)", nullable: true),
+                    Pozycja = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Strona", x => x.IdStrony);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,6 +87,12 @@ namespace Firma.Intranet.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Aktualnosc");
+
+            migrationBuilder.DropTable(
+                name: "Strona");
+
             migrationBuilder.DropTable(
                 name: "Towar");
 

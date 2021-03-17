@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Firma.Intranet.Data;
+using Firma.Data.Data;
 
 namespace Firma.Intranet
 {
@@ -27,8 +27,8 @@ namespace Firma.Intranet
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<FirmaIntranetContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("FirmaIntranetContext")));
+            services.AddDbContext<FirmaContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("FirmaContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

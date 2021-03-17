@@ -1,4 +1,4 @@
-﻿@model Firma.Intranet.Models.Sklep.Rodzaj
+﻿@model Firma.Data.Data.Sklep.Rodzaj
 
 @{
     ViewData["Title"] = "Delete";
@@ -11,20 +11,20 @@
     <h4>Rodzaj</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nazwa)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nazwa)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Opis)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Opis)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdRodzaju" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
