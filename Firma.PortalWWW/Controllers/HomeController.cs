@@ -1,4 +1,5 @@
-﻿using Firma.PortalWWW.Models;
+﻿using Firma.Data.Data;
+using Firma.PortalWWW.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,17 +12,31 @@ namespace Firma.PortalWWW.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly FirmaContext _context;
+        public HomeController(FirmaContext context)
         {
-            _logger = logger;
+            _context = context;
+        }
+        public IActionResult Index(int? id)
+        {
+            ViewBag.ModelStrony =
+                  (
+                      from strona in _context.Strona
+                      orderby strona.Pozycja
+                      select strona
+                  ).ToList();
+            ViewBag.ModelAktualnosci =
+                (from aktualnosc in _context.Aktualnosc
+                 orderby aktualnosc.Pozycja
+                 select aktualnosc
+                ).ToList();
+            if (id == null)
+                id = _context.Strona.First().IdStrony;
+            var item = _context.Strona.Find(id);
+            return View(item);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+    
         public IActionResult About()
         {
             return View();

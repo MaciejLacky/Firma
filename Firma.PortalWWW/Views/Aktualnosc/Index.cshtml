@@ -1,0 +1,11 @@
+﻿@model Firma.Data.Data.CMS.Aktualnosc
+@{
+    ViewData["Title"] = @Model.Tytul;
+}
+<div>Aktualność</div>
+<div>Tytuł aktualności: @Model.Tytul </div>
+@Model.Tekst
+<br />
+Data i godzina edycji: @DateTime.Now.ToString()
+
+
