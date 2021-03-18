@@ -28,9 +28,11 @@ namespace Firma.Data.Data.Sklep
         public string FotoURL { get; set; }
 
         public string Opis { get; set; }
-
+        [Display(Name = "Czy ten towar jest promocyjny?")]
+        public bool Promocja { get; set; }
         public int IdRodzaju { get; set; }
         public virtual Rodzaj Rodzaj { get; set; }
+        
 
     }
 }

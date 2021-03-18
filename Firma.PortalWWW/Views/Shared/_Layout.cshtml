@@ -13,28 +13,26 @@
 </head>
 <body>
     <nav class="light-blue lighten-1" role="navigation">
-        
-            @await Html.PartialAsync("Odnosniki", (IEnumerable<Firma.Data.Data.CMS.Strona>)ViewBag.ModelStrony)
-           
+
+        @await Html.PartialAsync("Odnosniki", (IEnumerable<Firma.Data.Data.CMS.Strona>)ViewBag.ModelStrony)
+       
     </nav>
-    <div class="section no-pad-bot" id="index-banner">
+    <div class="section" id="index-banner">
         @RenderBody()
     </div>
 
 
     <div class="container">
-       
-        <div class="section">
-
+        <div class="row">
             @await Html.PartialAsync("Aktualnosci", (IEnumerable<Firma.Data.Data.CMS.Aktualnosc>)ViewBag.ModelAktualnosci)
-
         </div>
-        <br><br>
+      
+               
+           </div>
 
-        <div class="section">
-
-        </div>
-    </div>
+       
+   
+   
 
     <footer class="page-footer orange">
         <div class="container">

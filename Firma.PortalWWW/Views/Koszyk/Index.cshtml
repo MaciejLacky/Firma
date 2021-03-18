@@ -1,0 +1,47 @@
+﻿@model Firma.PortalWWW.Models.Sklep.DaneDoKoszyka
+@{
+    ViewData["Title"] = "Koszyk";
+    Layout = "~/Views/Shared/_KoszykLayout.cshtml";
+}
+<h2>Mój koszyk</h2>
+<div>
+    <table>
+        <tr>
+            <th>
+                Nazwa towaru
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>
+                Ilość
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.ElementyKoszyka)
+        {
+            <tr>
+                <td>
+                    @*@item.Towar.Nazwa*@
+                    <a asp-action="Szczegoly" asp-controller="Sklep" asp-route-id="@item.IdTowaru">@item.Towar.Nazwa</a> |
+                </td>
+                <td>
+                    @String.Format("{0:F}", item.Towar.Cena)
+                </td>
+                <td>
+                    @String.Format("{0:F}", item.Ilosc)
+                </td>
+                <td>
+                    @*<a href="#">Usuń</a>*@
+                </td>
+            </tr>
+        }
+    </table>
+    <h4>Razem:@String.Format("{0:F}", Model.Razem) </h4>
+
+</div>
+<div>
+    <a asp-action="Dane" asp-controller="Zakup">Kup teraz</a> |
+    @*@Html.ActionLink("Kup teraz", "Dane", "Zakup")*@
+</div>
+

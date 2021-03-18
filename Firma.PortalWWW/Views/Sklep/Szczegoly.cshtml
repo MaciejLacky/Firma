@@ -1,0 +1,24 @@
+﻿@model Firma.Data.Data.Sklep.Towar
+@{
+    ViewData["Title"] = "Szczegoly towary";
+    Layout = "~/Views/Shared/_SklepLayout.cshtml";
+}
+<div>
+    Foto
+</div>
+<div>
+    @Model.Nazwa
+</div>
+<div>
+    @Model.Kod
+</div>
+<div>
+    @Model.Cena
+</div>
+<div>
+    @Model.Opis
+</div>
+<div>
+    <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@Model.IdTowaru">Dodaj do koszyka</a>
+    @*@Html.ActionLink("DodajDoKoszyka", "DodajDoKoszyka", "Koszyk", new { id = Model.IdTowaru }, "")*@
+</div>

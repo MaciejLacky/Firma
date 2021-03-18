@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.PozycjaZamowienia>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ilosc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTowaru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdZamowienia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ilosc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTowaru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdZamowienia)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

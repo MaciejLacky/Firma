@@ -4,14 +4,16 @@ using Firma.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Firma.Data.Migrations
 {
     [DbContext(typeof(FirmaContext))]
-    partial class FirmaContextModelSnapshot : ModelSnapshot
+    [Migration("20210318100115_M3")]
+    partial class M3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,40 +106,6 @@ namespace Firma.Data.Migrations
                     b.ToTable("ElementKoszyka");
                 });
 
-            modelBuilder.Entity("Firma.Data.Data.Sklep.PozycjaZamowienia", b =>
-                {
-                    b.Property<int>("IdPozycjiZamowienia")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Cena")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("IdTowaru")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdZamowienia")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Ilosc")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("TowarIdTowaru")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ZamowienieIdZamowienia")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdPozycjiZamowienia");
-
-                    b.HasIndex("TowarIdTowaru");
-
-                    b.HasIndex("ZamowienieIdZamowienia");
-
-                    b.ToTable("PozycjaZamowienia");
-                });
-
             modelBuilder.Entity("Firma.Data.Data.Sklep.Rodzaj", b =>
                 {
                     b.Property<int>("IdRodzaju")
@@ -199,71 +167,6 @@ namespace Firma.Data.Migrations
                     b.ToTable("Towar");
                 });
 
-            modelBuilder.Entity("Firma.Data.Data.Sklep.Zamowienie", b =>
-                {
-                    b.Property<int>("IdZamowienia")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DataZamowienia")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imie")
-                        .IsRequired()
-                        .HasMaxLength(160)
-                        .HasColumnType("nvarchar(160)");
-
-                    b.Property<string>("KodPocztowy")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("Login")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Miasto")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
-
-                    b.Property<string>("Nazwisko")
-                        .IsRequired()
-                        .HasMaxLength(160)
-                        .HasColumnType("nvarchar(160)");
-
-                    b.Property<string>("NumerTelefonu")
-                        .IsRequired()
-                        .HasMaxLength(24)
-                        .HasColumnType("nvarchar(24)");
-
-                    b.Property<string>("Panstwo")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
-
-                    b.Property<decimal>("Razem")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Ulica")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
-
-                    b.Property<string>("Wojewodztwo")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
-
-                    b.HasKey("IdZamowienia");
-
-                    b.ToTable("Zamowienie");
-                });
-
             modelBuilder.Entity("Firma.Data.Data.Sklep.ElementKoszyka", b =>
                 {
                     b.HasOne("Firma.Data.Data.Sklep.Towar", "Towar")
@@ -271,21 +174,6 @@ namespace Firma.Data.Migrations
                         .HasForeignKey("TowarIdTowaru");
 
                     b.Navigation("Towar");
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.Sklep.PozycjaZamowienia", b =>
-                {
-                    b.HasOne("Firma.Data.Data.Sklep.Towar", "Towar")
-                        .WithMany()
-                        .HasForeignKey("TowarIdTowaru");
-
-                    b.HasOne("Firma.Data.Data.Sklep.Zamowienie", "Zamowienie")
-                        .WithMany("PozycjaZamowienia")
-                        .HasForeignKey("ZamowienieIdZamowienia");
-
-                    b.Navigation("Towar");
-
-                    b.Navigation("Zamowienie");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Towar", b =>
@@ -300,11 +188,6 @@ namespace Firma.Data.Migrations
             modelBuilder.Entity("Firma.Data.Data.Sklep.Rodzaj", b =>
                 {
                     b.Navigation("Towar");
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.Sklep.Zamowienie", b =>
-                {
-                    b.Navigation("PozycjaZamowienia");
                 });
 #pragma warning restore 612, 618
         }

@@ -28,6 +28,17 @@ namespace Firma.PortalWWW
             services.AddControllersWithViews();
             services.AddDbContext<FirmaContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("FirmaContext")));
+            //to
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(40);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
+            //to
 
         }
 
@@ -46,6 +57,9 @@ namespace Firma.PortalWWW
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //to
+            app.UseSession();
+            //to
 
             app.UseRouting();
 

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Rodzaj>
+<div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+        @*Tu są wszystkie linki*@
+        @foreach (var item in Model)
+        {
+            <li>
+                @*@Html.ActionLink(item.Nazwa, "Index", "Sklep", new { id = item.IdRodzaju}, null)*@
+                <a asp-action="Index" asp-route-id="@item.IdRodzaju">@item.Nazwa</a> |
+
+            </li>
+
+        }
+        <li>@Html.ActionLink("Promocje", "Promocje", "Sklep")</li>
+        <li>
+            <a asp-action="Index" asp-controller="Koszyk">Koszyk</a> |
+        </li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+        @*linki mobilne*@
+        @foreach (var item in Model)
+        {
+            <li>
+                @*@Html.ActionLink(item.Nazwa, "Index", "Sklep", new { id = item.IdRodzaju }, null)*@
+                <a asp-action="Index" asp-route-id="@item.IdRodzaju">@item.Nazwa</a> |
+            </li>
+        }
+        <li>
+            <a asp-action="Index" asp-controller="Koszyk">Koszyk</a> |
+        </li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+</div>

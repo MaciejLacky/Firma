@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Towar>
+@{
+    ViewData["Title"] = "Sklep";
+    Layout = "~/Views/Shared/_SklepLayout.cshtml";
+}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th data-field="id">Foto</th>
+                <th data-field="name">Nazwa</th>
+                <th data-field="price">Cena</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var towar in Model)
+            {
+                <tr>
+                    <td>
+                        Foto
+                        @*<a href="@Url.Action("Szczegoly",new {id=towar.IdTowaru})">
+                             <img alt="@towar.Nazwa" src="@towar.FotoUrl" height="40" width="40" />
+                            </a>*@
+
+                    </td>
+                    <td><a asp-action="Szczegoly" asp-route-id="@towar.IdTowaru">@towar.Nazwa</a></td>
+                    <td>@towar.Cena.ToString("0.00")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

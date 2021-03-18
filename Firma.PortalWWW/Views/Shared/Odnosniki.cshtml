@@ -2,19 +2,20 @@
 <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
+        <li>@Html.ActionLink("Sklep internetowy", "Index", "Sklep")</li>
         @foreach (var item in Model)
         {
             <li>
-                @*@Html.ActionLink(item.LinkTytul, "Index", "Home", new { id = item.IdStrony }, null)*@
-                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" asp-route-id="@item.IdStrony">@item.LinkTytul</a>
+                @Html.ActionLink(item.LinkTytul, "Index", "Home", new { id = item.IdStrony }, null)
+                @*<a class="nav-link text-dark" asp-controller="Home" asp-action="Index" asp-route-id="@item.IdStrony">@item.LinkTytul</a>*@
             </li>
         }
     </ul>
     <ul id="nav-mobile" class="sidenav">
+        <li>@Html.ActionLink("Sklep internetowy", "Promocje", "Sklep")</li>
         @foreach (var item in Model)
         {
             <li>
-                @*@Html.ActionLink(item.LinkTytul, "Index", "Home", new { id = item.IdStrony }, null)*@
                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" asp-route-id="@item.IdStrony">@item.LinkTytul</a>
             </li>
         }

@@ -24,5 +24,9 @@ namespace Firma.Data.Data
 
         public DbSet<Towar> Towar { get; set; }
 
+        public DbSet<ElementKoszyka> ElementKoszyka { get; set; }
+        public DbSet<Zamowienie> Zamowienie { get; set; }
+        public DbSet<PozycjaZamowienia> PozycjaZamowienia { get; set; }
+
     }
 }
